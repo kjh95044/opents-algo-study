@@ -115,3 +115,9 @@ OPEN TS 알고리즘 스터디 1기 기록
 | -- |--| -- |--|--|
 | PRG | 340199 | [지폐 접기](https://school.programmers.co.kr/learn/courses/30/lessons/340199) | [PCCE 기출문제] 9번 | lv1 |
 | PRG | 87389 | [나머지가 1이 되는 수 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/87389) | 월간 코드 챌린지 시즌3 | lv1 |
+
+### 🚩 week 3
+| Type | 문제 | 제목 | 유형 | rank |
+| -- |--| -- |--|--|
+| PRG | 12947 | [하샤드 수](https://school.programmers.co.kr/learn/courses/30/lessons/12947) | 연습문제 | lv1 |
+| PRG | 42748 | [K번째수](https://school.programmers.co.kr/learn/courses/30/lessons/42748) | 정렬 | lv1 |
