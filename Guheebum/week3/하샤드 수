@@ -1,0 +1,23 @@
+function solution(x) {
+    // 1. 숫자를 문자열로 변환 후 각 자릿수 배열로 만들기
+    const digits = String(x).split('');
+    // 예: 18 → "18" → ['1', '8']
+
+    // 2. 각 자릿수를 숫자로 변환
+    const numbers = digits.map(d => Number(d));
+    // 예: ['1', '8'] → [1, 8]
+
+    // 3. 자릿수의 합 계산
+    let digitSum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        digitSum += numbers[i];
+    }
+    // 예: 1 + 8 = 9
+
+    // 4. x가 자릿수 합으로 나누어 떨어지는지 확인
+    if (x % digitSum === 0) {
+        return true;  // 하샤드 수
+    } else {
+        return false; // 하샤드 수가 아님
+    }
+}
