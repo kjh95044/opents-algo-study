@@ -1,0 +1,24 @@
+function solution(array, commands) {
+    
+    let result = []; // 최종 결과를 담을 빈 배열
+
+    for (let i = 0; i < commands.length; i++) { // commands 배열을 하나씩 순회
+        
+        let start = commands[i][0]; // 자르기 시작할 위치 (i)
+        let end   = commands[i][1]; // 자르기 끝날 위치 (j)
+        let pick  = commands[i][2]; // 정렬 후 선택할 위치 (k)
+
+        // slice(start-1, end) : 1번째 = index 0 이므로 start에서 -1 보정
+        let sliced = array.slice(start - 1, end);
+
+        // 오름차순 정렬 (sort()만 쓰면 문자열 기준 정렬이라 숫자 비교 함수 필요)
+        let sorted = sliced.sort(function(a, b) { return a - b; });
+
+        // k번째 = index (pick-1) 이므로 -1 보정
+        let answer = sorted[pick - 1];
+
+        result.push(answer); // 결과 배열에 추가
+    }
+
+    return result; // 최종 결과 반환
+}
