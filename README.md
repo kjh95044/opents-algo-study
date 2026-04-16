@@ -121,3 +121,10 @@ OPEN TS 알고리즘 스터디 1기 기록
 | -- |--| -- |--|--|
 | PRG | 12947 | [하샤드 수](https://school.programmers.co.kr/learn/courses/30/lessons/12947) | 연습문제 | lv1 |
 | PRG | 42748 | [K번째수](https://school.programmers.co.kr/learn/courses/30/lessons/42748) | 정렬 | lv1 |
+
+### 🚩 week 4
+| Type | 문제 | 제목 | 유형 | rank |
+| -- |--| -- |--|--|
+| PRG | 12954 | [x만큼 간격이 있는 n개의 숫자](https://school.programmers.co.kr/learn/courses/30/lessons/12954) | 연습문제 | lv1 |
+| PRG | 12903 | [가운데 글자 가져오기](https://school.programmers.co.kr/learn/courses/30/lessons/12903?language=python3) | 연습문제 | lv1 |
+
