@@ -1,0 +1,11 @@
+function solution(x, n) {
+    const result = [];
+    let current = x;  // 현재 값을 저장하는 변수
+
+    for (let i = 0; i < n; i++) {
+        result.push(current);  // 현재 값을 배열에 추가
+        current += x;          // 다음 값을 위해 x만큼 증가
+    }
+
+    return result;
+}
