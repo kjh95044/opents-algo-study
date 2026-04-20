@@ -1,0 +1,62 @@
+function solution(message, spoiler_ranges) {
+    const n = message.length;                          // 메시지 전체 길이 저장
+    
+    // 1. 각 인덱스가 스포일러 구간인지 표시
+    const isSpoiler = new Array(n).fill(false);        // 모든 인덱스를 false로 초기화
+    for (const [start, end] of spoiler_ranges) {       // 스포일러 구간을 순서대로 순회
+        for (let i = start; i <= end; i++) {           // 구간 내 모든 인덱스를
+            isSpoiler[i] = true;                       // true로 표시 (스포일러 구간임을 체크)
+        }
+    }
+    
+    // 2. 단어 파싱 - 각 단어의 텍스트, 시작/끝 인덱스 추출
+    const words = [];                                  // 단어 정보를 담을 배열
+    let i = 0;
+    while (i < n) {
+        if (message[i] === ' ') {                      // 공백이면 그냥 건너뜀
+            i++;
+            continue;
+        }
+        let j = i;
+        while (j < n && message[j] !== ' ') j++;      // 공백이 나올 때까지 j를 앞으로 이동
+        words.push({ 
+            text: message.slice(i, j),                 // 단어 텍스트
+            start: i,                                  // 단어 시작 인덱스
+            end: j - 1                                 // 단어 끝 인덱스
+        });
+        i = j;                                         // 다음 단어 탐색 시작점 갱신
+    }
+    
+    // 3. 스포일러 구간 밖에 등장한 단어 집합 수집
+    const nonSpoilerWords = new Set();                 // 중복 없이 저장하기 위해 Set 사용
+    for (const word of words) {
+        let inSpoiler = false;
+        for (let k = word.start; k <= word.end; k++) {
+            if (isSpoiler[k]) { inSpoiler = true; break; }  // 한 글자라도 스포일러 구간이면 스포일러 단어
+        }
+        if (!inSpoiler) {
+            nonSpoilerWords.add(word.text);            // 스포일러 구간 밖 단어만 추가
+        }
+    }
+    
+    // 4. 스포일러 구간별로 중요한 단어 판별
+    const revealedSpoilerWords = new Set();            // 이미 카운트된 스포일러 단어 저장 (중복 방지)
+    let count = 0;                                     // 최종 반환할 중요 단어 수
+    
+    for (const [start, end] of spoiler_ranges) {
+        // 이 구간에 걸친 단어들 수집 (왼쪽부터 순서대로)
+        const wordsInRange = words.filter(word =>
+            word.start <= end && word.end >= start     // 구간과 겹치는 단어 필터링
+        );
+        
+        for (const word of wordsInRange) {
+            if (nonSpoilerWords.has(word.text)) continue;      // 비스포일러 구간에 나온 단어면 제외
+            if (revealedSpoilerWords.has(word.text)) continue; // 이미 카운트된 단어면 제외
+            
+            revealedSpoilerWords.add(word.text);       // 새로운 스포일러 단어로 등록
+            count++;                                   // 중요 단어 수 증가
+        }
+    }
+    
+    return count;                                      // 최종 중요 단어 수 반환
+}
