@@ -128,3 +128,9 @@ OPEN TS 알고리즘 스터디 1기 기록
 | PRG | 12954 | [x만큼 간격이 있는 n개의 숫자](https://school.programmers.co.kr/learn/courses/30/lessons/12954) | 연습문제 | lv1 |
 | PRG | 12903 | [가운데 글자 가져오기](https://school.programmers.co.kr/learn/courses/30/lessons/12903?language=python3) | 연습문제 | lv1 |
 
+### 🚩 week 5
+| Type | 문제 | 제목 | 유형 | rank |
+| -- |--| -- |--|--|
+| PRG | 12951 | [JadenCase 문자열 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/12951) | 연습문제 | lv1 |
+| PRG | 12940 | [최대공약수와 최소공배수](https://school.programmers.co.kr/learn/courses/30/lessons/12940) | 연습문제 | lv1 |
+
